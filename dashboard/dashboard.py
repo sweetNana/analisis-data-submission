@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load data
-all_df = pd.read_csv("main_data.csv")
+all_df = pd.read_csv("cleared_data.csv")
 
 # Membentuk kolom tanggal
 all_df['date'] = pd.to_datetime(all_df[['year', 'month', 'day']])
