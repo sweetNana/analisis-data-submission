@@ -17,7 +17,7 @@ ConfigParser==7.2.0
 contextlib2==21.6.0
 cryptography==45.0.3
 cudf==0.6.1.post1
-//cupy==13.4.1
+#cupy==13.4.1
 cycler==0.12.1
 Cython==3.1.1
 dask==2025.5.1
@@ -63,7 +63,7 @@ py==1.11.0
 pycares==4.8.0
 pycurl==7.45.6
 PyInstaller==6.13.0
-//pyodide==0.0.2
+#pyodide==0.0.2
 pyOpenSSL==25.1.0
 pyperf==2.9.0
 PyQt4==4.11.4
