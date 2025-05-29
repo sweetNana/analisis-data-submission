@@ -7,7 +7,7 @@ import os
 # Load data
 base_dir = os.path.dirname(__file__)
 csv_path = os.path.join(base_dir, "cleared_data.csv")
-df = pd.read_csv(csv_path)
+all_df = pd.read_csv(csv_path)
 
 # Membentuk kolom tanggal
 all_df['date'] = pd.to_datetime(all_df[['year', 'month', 'day']])
