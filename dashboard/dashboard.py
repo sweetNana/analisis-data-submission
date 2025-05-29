@@ -2,9 +2,12 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 # Load data
-all_df = pd.read_csv("cleared_data.csv")
+base_dir = os.path.dirname(__file__)
+csv_path = os.path.join(base_dir, "cleared_data.csv")
+df = pd.read_csv(csv_path)
 
 # Membentuk kolom tanggal
 all_df['date'] = pd.to_datetime(all_df[['year', 'month', 'day']])
