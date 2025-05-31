@@ -12,5 +12,5 @@ pip install -r requirements.txt
 
 ```
 cd dasboard
-streamlit run app.py
+streamlit run dashboard.py
 ```

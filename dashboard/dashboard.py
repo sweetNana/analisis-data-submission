@@ -77,39 +77,3 @@ ax2.set_xticklabels(station_mean_pm25.index, rotation=45)
 ax2.grid(True)
 plt.tight_layout()
 st.pyplot(fig2)
-
-# ============================
-# 3. Perbandingan Musim
-# ============================
-st.header("❄️☀️ Perbandingan Polusi: Musim Dingin vs Musim Panas")
-
-# Menentukan musim berdasarkan bulan
-def assign_season(month):
-    if month in [12, 1, 2]:
-        return 'Winter'
-    elif month in [6, 7, 8]:
-        return 'Summer'
-    else:
-        return 'Other'
-
-all_df['season'] = all_df['month'].apply(assign_season)
-
-# Pilihan polutan untuk dibandingkan
-available_pollutants = ['PM2.5', 'PM10', 'CO', 'SO2', 'NO2']
-selected_pollutants = st.multiselect("Pilih polutan untuk dibandingkan antar musim:", available_pollutants, default=available_pollutants)
-
-seasonal_data = all_df[all_df['season'].isin(['Winter', 'Summer'])]
-
-seasonal_mean = seasonal_data.groupby('season')[selected_pollutants].mean()
-
-st.subheader("📊 Rata-rata Konsentrasi Polutan")
-st.dataframe(seasonal_mean)
-
-fig3, ax3 = plt.subplots(figsize=(10, 5))
-seasonal_mean.T.plot(kind='bar', ax=ax3)
-ax3.set_title('Perbandingan Konsentrasi Polutan antara Musim Dingin dan Musim Panas')
-ax3.set_ylabel('Rata-rata Konsentrasi')
-ax3.set_xlabel('Jenis Polutan')
-ax3.grid(True)
-plt.tight_layout()
-st.pyplot(fig3)
